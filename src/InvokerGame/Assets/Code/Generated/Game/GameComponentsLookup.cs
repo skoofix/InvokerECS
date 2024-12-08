@@ -8,33 +8,54 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int WorldPosition = 0;
-    public const int Speed = 1;
-    public const int Orb = 2;
-    public const int OrbIcon = 3;
-    public const int OrbId = 4;
-    public const int Spell = 5;
-    public const int SpellId = 6;
+    public const int Id = 0;
+    public const int Transform = 1;
+    public const int WorldPosition = 2;
+    public const int Hero = 3;
+    public const int Direction = 4;
+    public const int Moving = 5;
+    public const int Speed = 6;
+    public const int Orb = 7;
+    public const int OrbIcon = 8;
+    public const int OrbId = 9;
+    public const int Spell = 10;
+    public const int SpellId = 11;
+    public const int AxisInput = 12;
+    public const int Input = 13;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
+        "Id",
+        "Transform",
         "WorldPosition",
+        "Hero",
+        "Direction",
+        "Moving",
         "Speed",
         "Orb",
         "OrbIcon",
         "OrbId",
         "Spell",
-        "SpellId"
+        "SpellId",
+        "AxisInput",
+        "Input"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Gameplay.Common.Id),
+        typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Hero.Hero),
+        typeof(Code.Gameplay.Features.Movement.Direction),
+        typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Orb.Orb),
         typeof(Code.Gameplay.Features.Orb.OrbIcon),
         typeof(Code.Gameplay.Features.Orb.OrbId),
         typeof(Code.Gameplay.Features.Spells.Spell),
-        typeof(Code.Gameplay.Features.Spells.SpellId)
+        typeof(Code.Gameplay.Features.Spells.SpellId),
+        typeof(Code.Gameplay.Input.AxisInput),
+        typeof(Code.Gameplay.Input.Input)
     };
 }
