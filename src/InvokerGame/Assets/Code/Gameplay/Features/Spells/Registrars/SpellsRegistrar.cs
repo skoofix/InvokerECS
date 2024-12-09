@@ -2,19 +2,18 @@
 using Code.Infrastructure.View.Registrars;
 using UnityEngine;
 
-namespace Code.Gameplay.Features.Hero.Registrars
+namespace Code.Gameplay.Features.Spells.Registrars
 {
-    public class HeroRegistrar : EntityComponentRegistrar
+    public class SpellsRegistrar : EntityComponentRegistrar
     {
-        public float Speed = 2f;
-
         public override void RegisterComponents()
         {
             Entity
                 .AddWorldPosition(transform.position)
                 .AddDirection(Vector2.zero)
-                .AddSpeed(Speed)
-                .With(x => x.isHero = true);
+                .AddSpeed(1)
+                .With(x=> x.isSpell = true)
+                .With(x=> x.isMoving = true);
         }
 
         public override void UnregisterComponents()
