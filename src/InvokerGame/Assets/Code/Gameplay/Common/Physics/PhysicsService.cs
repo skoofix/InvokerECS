@@ -34,6 +34,26 @@ namespace Code.Gameplay.Common.Physics
       }
     }
 
+    public IEnumerable<GameEntity> OverlapBox(Vector2 center, Vector2 size, float angle, int layerMask)
+    {
+      int hitCount = Physics2D.OverlapBoxNonAlloc(center, size, angle, OverlapHits, layerMask);
+
+      DrawDebugBox(center, size, angle, 1f, Color.yellow);
+      
+      for (int i = 0; i < hitCount; i++)
+      {
+        Collider2D hit = OverlapHits[i];
+        if (hit == null)
+          continue;
+
+        GameEntity entity = _collisionRegistry.Get<GameEntity>(hit.GetInstanceID());
+        if (entity == null)
+          continue;
+
+        yield return entity;
+      }
+    }
+
     public GameEntity Raycast(Vector2 worldPosition, Vector2 direction, int layerMask)
     {
       int hitCount = Physics2D.RaycastNonAlloc(worldPosition, direction, Hits, layerMask);
@@ -138,6 +158,36 @@ namespace Code.Gameplay.Common.Physics
       Debug.DrawRay(worldPos, radius * Vector3.down, color, seconds);
       Debug.DrawRay(worldPos, radius * Vector3.left, color, seconds);
       Debug.DrawRay(worldPos, radius * Vector3.right, color, seconds);
+    }
+    
+    private static void DrawDebugBox(Vector2 center, Vector2 size, float angle, float duration, Color color)
+    {
+      Vector3 halfSize = size * 0.5f;
+
+      // Вычисление углов прямоугольника с учетом угла поворота
+      Vector3[] corners = {
+        Rotate(Vector3.left * halfSize.x + Vector3.up * halfSize.y, angle) + (Vector3)center,
+        Rotate(Vector3.right * halfSize.x + Vector3.up * halfSize.y, angle) + (Vector3)center,
+        Rotate(Vector3.right * halfSize.x + Vector3.down * halfSize.y, angle) + (Vector3)center,
+        Rotate(Vector3.left * halfSize.x + Vector3.down * halfSize.y, angle) + (Vector3)center,
+      };
+
+      // Отрисовка линий прямоугольника
+      Debug.DrawLine(corners[0], corners[1], color, duration);
+      Debug.DrawLine(corners[1], corners[2], color, duration);
+      Debug.DrawLine(corners[2], corners[3], color, duration);
+      Debug.DrawLine(corners[3], corners[0], color, duration);
+    }
+
+    private static Vector3 Rotate(Vector3 point, float angle)
+    {
+      float rad = angle * Mathf.Deg2Rad;
+      float cos = Mathf.Cos(rad);
+      float sin = Mathf.Sin(rad);
+      return new Vector3(
+        point.x * cos - point.y * sin,
+        point.x * sin + point.y * cos
+      );
     }
   }
 }

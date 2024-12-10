@@ -39,7 +39,7 @@ namespace Code.Infrastructure.View
                 _collisionRegistry.Unregister(collider2d.GetInstanceID());
 
             
-            _entity.Retain(this);
+            _entity.Release(this);
             _entity = null;
         }
     }

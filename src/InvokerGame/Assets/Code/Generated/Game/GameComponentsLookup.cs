@@ -11,34 +11,52 @@ public static class GameComponentsLookup {
     public const int Destructed = 0;
     public const int SelfDestructTimer = 1;
     public const int View = 2;
-    public const int Id = 3;
-    public const int SpriteRenderer = 4;
-    public const int Transform = 5;
-    public const int WorldPosition = 6;
-    public const int Hero = 7;
-    public const int Direction = 8;
-    public const int Falling = 9;
-    public const int Moving = 10;
-    public const int Speed = 11;
-    public const int Orb = 12;
-    public const int OrbIcon = 13;
-    public const int OrbId = 14;
-    public const int Spell = 15;
-    public const int SpellId = 16;
-    public const int AxisInput = 17;
-    public const int Input = 18;
+    public const int Damage = 3;
+    public const int Id = 4;
+    public const int Radius = 5;
+    public const int SpriteRenderer = 6;
+    public const int Transform = 7;
+    public const int WorldPosition = 8;
+    public const int DeathZone = 9;
+    public const int Hero = 10;
+    public const int CurrentHp = 11;
+    public const int MaxHp = 12;
+    public const int Direction = 13;
+    public const int Falling = 14;
+    public const int Moving = 15;
+    public const int Speed = 16;
+    public const int Orb = 17;
+    public const int OrbIcon = 18;
+    public const int OrbId = 19;
+    public const int Spell = 20;
+    public const int SpellId = 21;
+    public const int CollectingTargetsContinuously = 22;
+    public const int CollectTargetsInterval = 23;
+    public const int CollectTargetsTimer = 24;
+    public const int LayerMask = 25;
+    public const int ProcessedTargets = 26;
+    public const int Reached = 27;
+    public const int ReadyToCollectTargets = 28;
+    public const int TargetBuffer = 29;
+    public const int AxisInput = 30;
+    public const int Input = 31;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 32;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "SelfDestructTimer",
         "View",
+        "Damage",
         "Id",
+        "Radius",
         "SpriteRenderer",
         "Transform",
         "WorldPosition",
+        "DeathZone",
         "Hero",
+        "CurrentHp",
+        "MaxHp",
         "Direction",
         "Falling",
         "Moving",
@@ -48,6 +66,14 @@ public static class GameComponentsLookup {
         "OrbId",
         "Spell",
         "SpellId",
+        "CollectingTargetsContinuously",
+        "CollectTargetsInterval",
+        "CollectTargetsTimer",
+        "LayerMask",
+        "ProcessedTargets",
+        "Reached",
+        "ReadyToCollectTargets",
+        "TargetBuffer",
         "AxisInput",
         "Input"
     };
@@ -56,11 +82,16 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Destructed),
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.View),
+        typeof(Code.Gameplay.Common.Damage),
         typeof(Code.Gameplay.Common.Id),
+        typeof(Code.Gameplay.Common.Radius),
         typeof(Code.Gameplay.Common.SpriteRendererComponent),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.DeathZone.DeathZone),
         typeof(Code.Gameplay.Features.Hero.Hero),
+        typeof(Code.Gameplay.Features.LifeTime.CurrentHp),
+        typeof(Code.Gameplay.Features.LifeTime.MaxHp),
         typeof(Code.Gameplay.Features.Movement.Direction),
         typeof(Code.Gameplay.Features.Movement.Falling),
         typeof(Code.Gameplay.Features.Movement.Moving),
@@ -70,6 +101,14 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Orb.OrbId),
         typeof(Code.Gameplay.Features.Spells.Spell),
         typeof(Code.Gameplay.Features.Spells.SpellId),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContinuously),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
+        typeof(Code.Gameplay.Features.TargetCollection.LayerMask),
+        typeof(Code.Gameplay.Features.TargetCollection.ProcessedTargets),
+        typeof(Code.Gameplay.Features.TargetCollection.Reached),
+        typeof(Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
+        typeof(Code.Gameplay.Features.TargetCollection.TargetBuffer),
         typeof(Code.Gameplay.Input.AxisInput),
         typeof(Code.Gameplay.Input.Input)
     };

@@ -12,6 +12,8 @@ namespace Code.Gameplay.Features.Spells.Registrars
                 .AddWorldPosition(transform.position)
                 .AddDirection(Vector2.zero)
                 .AddSpeed(1)
+                .AddMaxHp(1)
+                .AddCurrentHp(1)
                 .With(x=> x.isSpell = true)
                 .With(x=> x.isMoving = true);
         }
