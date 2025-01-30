@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Code.Gameplay.Input;
+using Entitas;
 
 namespace Code.Gameplay.Features.Hero.Systems
 {
@@ -25,4 +26,5 @@ namespace Code.Gameplay.Features.Hero.Systems
             }
         }
     }
+
 }

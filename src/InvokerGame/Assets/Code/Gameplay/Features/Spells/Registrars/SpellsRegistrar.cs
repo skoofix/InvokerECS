@@ -14,8 +14,9 @@ namespace Code.Gameplay.Features.Spells.Registrars
                 .AddSpeed(1)
                 .AddMaxHp(1)
                 .AddCurrentHp(1)
+                .AddSpellId(SpellTypeId.ColdSnap)
                 .With(x=> x.isSpell = true)
-                .With(x=> x.isMoving = true);
+                .With(x=> x.isMoving = false);
         }
 
         public override void UnregisterComponents()

@@ -16,6 +16,7 @@ namespace Code.Gameplay.Input.Service
           _mainCamera = Camera.main;
         
         return _mainCamera;
+        
       }
     }
 
@@ -36,8 +37,12 @@ namespace Code.Gameplay.Input.Service
     
     public float GetVerticalAxis() => UnityEngine.Input.GetAxis("Vertical");
     public float GetHorizontalAxis() => UnityEngine.Input.GetAxis("Horizontal");
-    
 
+    public bool GetKeyDown(KeyCode key) => UnityEngine.Input.GetKeyDown(key);
+    public bool IsUltimatePressed => UnityEngine.Input.GetKeyDown(KeyCode.R);
+    
+    public bool HasKeyInput() => UnityEngine.Input.anyKeyDown;
+    
     public bool GetLeftMouseButton() => 
       UnityEngine.Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject();
 

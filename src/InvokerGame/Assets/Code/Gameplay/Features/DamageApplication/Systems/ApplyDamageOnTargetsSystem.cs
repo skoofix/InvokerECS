@@ -26,7 +26,6 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
                 if (entity.hasCurrentHp)
                 {
                     entity.ReplaceCurrentHp(entity.CurrentHp - damageDealer.Damage);
-                    
                 }
             }
         }

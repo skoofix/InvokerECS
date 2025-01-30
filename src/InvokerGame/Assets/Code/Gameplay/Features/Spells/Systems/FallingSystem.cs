@@ -20,7 +20,6 @@ namespace Code.Gameplay.Features.Spells.Systems
             foreach (GameEntity entity in _entities)
             {
                 entity.ReplaceDirection(Vector2.down);
-                entity.isMoving = true;
             }
         }
     }

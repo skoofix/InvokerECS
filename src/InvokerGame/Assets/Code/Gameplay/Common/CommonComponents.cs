@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Code.Gameplay.Common.Visuals;
+using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
 
@@ -11,4 +12,5 @@ namespace Code.Gameplay.Common
     
     [Game] public class TransformComponent : IComponent { public Transform Value; }
     [Game] public class SpriteRendererComponent : IComponent { public SpriteRenderer Value; }
+    [Game] public class DamageTaken : IComponent { public IDamageTakenAnimator Value; }
 }

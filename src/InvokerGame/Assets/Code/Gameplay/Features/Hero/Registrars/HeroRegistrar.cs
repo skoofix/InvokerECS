@@ -1,4 +1,6 @@
-﻿using Code.Common.Extensions;
+﻿using System.Collections.Generic;
+using Code.Common.Extensions;
+using Code.Gameplay.Features.Orb;
 using Code.Infrastructure.View.Registrars;
 using UnityEngine;
 
@@ -14,7 +16,9 @@ namespace Code.Gameplay.Features.Hero.Registrars
                 .AddWorldPosition(transform.position)
                 .AddDirection(Vector2.zero)
                 .AddSpeed(Speed)
-                .With(x => x.isHero = true);
+                .AddActiveOrbs(new List<OrbTypeId>())
+                .With(x => x.isInvoker = true)
+                .With(x => x.isUltimatePressed = false);
         }
 
         public override void UnregisterComponents()
