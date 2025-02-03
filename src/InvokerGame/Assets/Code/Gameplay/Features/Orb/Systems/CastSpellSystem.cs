@@ -20,7 +20,7 @@ namespace Code.Gameplay.Features.Orb.Systems
                     GameMatcher.Invoker,
                     GameMatcher.UltimatePressed));
 
-            _spells = game.GetGroup(GameMatcher.Spell);
+            _spells = game.GetGroup(GameMatcher.AllOf(GameMatcher.Spell).NoneOf(GameMatcher.ActivatedSpell));
 
             _spellsConfig = Resources.Load<SpellsConfig>("SpellsConfig");
         }
@@ -28,18 +28,17 @@ namespace Code.Gameplay.Features.Orb.Systems
         public void Execute()
         {
             foreach (GameEntity invoker in _invokers.GetEntities())
-            foreach (var spellEntity in _spells.GetEntities())
+            foreach (var spell in _spells.GetEntities())
             {
-                invoker.isUltimatePressed = false;
-
-                Debug.Log("Ультимейт отжали");
+                Debug.Log("Ищу спелл");
 
                 SpellDefinition foundSpellDef = _spellsConfig.spells
                     .FirstOrDefault(spellDef => spellDef.IsMatchCombination(invoker.ActiveOrbs));
 
-                if (foundSpellDef != null && spellEntity.SpellId == foundSpellDef.spellId)
+                if (foundSpellDef != null && spell.SpellId == foundSpellDef.spellId)
                 {
-                    spellEntity.isDestructed = true;
+                    spell.isActivatedSpell = true;
+                    break;
                 }
             }
         }

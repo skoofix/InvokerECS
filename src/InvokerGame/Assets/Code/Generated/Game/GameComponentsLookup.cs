@@ -11,47 +11,56 @@ public static class GameComponentsLookup {
     public const int Destructed = 0;
     public const int SelfDestructTimer = 1;
     public const int View = 2;
-    public const int Damage = 3;
-    public const int DamageTaken = 4;
-    public const int Id = 5;
-    public const int Radius = 6;
-    public const int SpriteRenderer = 7;
-    public const int Transform = 8;
-    public const int WorldPosition = 9;
-    public const int DeathZone = 10;
-    public const int Hero = 11;
-    public const int CurrentHp = 12;
-    public const int MaxHp = 13;
-    public const int Direction = 14;
-    public const int Falling = 15;
-    public const int Moving = 16;
-    public const int Speed = 17;
-    public const int ActiveOrbs = 18;
-    public const int Invoker = 19;
-    public const int Orb = 20;
-    public const int OrbIcon = 21;
-    public const int OrbId = 22;
-    public const int UltimatePressed = 23;
-    public const int Spell = 24;
-    public const int SpellId = 25;
-    public const int CollectingTargetsContinuously = 26;
-    public const int CollectTargetsInterval = 27;
-    public const int CollectTargetsTimer = 28;
-    public const int LayerMask = 29;
-    public const int ProcessedTargets = 30;
-    public const int Reached = 31;
-    public const int ReadyToCollectTargets = 32;
-    public const int TargetBuffer = 33;
-    public const int AxisInput = 34;
-    public const int Input = 35;
-    public const int SkillKey = 36;
+    public const int ViewPath = 3;
+    public const int ViewPrefab = 4;
+    public const int Damage = 5;
+    public const int DamageTaken = 6;
+    public const int Id = 7;
+    public const int Radius = 8;
+    public const int SpriteRenderer = 9;
+    public const int Transform = 10;
+    public const int WorldPosition = 11;
+    public const int DeathZone = 12;
+    public const int Hero = 13;
+    public const int CurrentHp = 14;
+    public const int Dead = 15;
+    public const int MaxHp = 16;
+    public const int ProcessingDeath = 17;
+    public const int Direction = 18;
+    public const int Falling = 19;
+    public const int MovementAvailable = 20;
+    public const int Moving = 21;
+    public const int Speed = 22;
+    public const int ActiveOrbs = 23;
+    public const int Invoker = 24;
+    public const int Orb = 25;
+    public const int OrbIcon = 26;
+    public const int OrbId = 27;
+    public const int UltimatePressed = 28;
+    public const int ActivatedSpell = 29;
+    public const int SpawnTimer = 30;
+    public const int Spell = 31;
+    public const int SpellId = 32;
+    public const int CollectingTargetsContinuously = 33;
+    public const int CollectTargetsInterval = 34;
+    public const int CollectTargetsTimer = 35;
+    public const int LayerMask = 36;
+    public const int ProcessedTargets = 37;
+    public const int Reached = 38;
+    public const int ReadyToCollectTargets = 39;
+    public const int TargetBuffer = 40;
+    public const int AxisInput = 41;
+    public const int Input = 42;
+    public const int SkillKey = 43;
 
-    public const int TotalComponents = 37;
+    public const int TotalComponents = 44;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "SelfDestructTimer",
         "View",
+        "ViewPath",
+        "ViewPrefab",
         "Damage",
         "DamageTaken",
         "Id",
@@ -62,9 +71,12 @@ public static class GameComponentsLookup {
         "DeathZone",
         "Hero",
         "CurrentHp",
+        "Dead",
         "MaxHp",
+        "ProcessingDeath",
         "Direction",
         "Falling",
+        "MovementAvailable",
         "Moving",
         "Speed",
         "ActiveOrbs",
@@ -73,6 +85,8 @@ public static class GameComponentsLookup {
         "OrbIcon",
         "OrbId",
         "UltimatePressed",
+        "ActivatedSpell",
+        "SpawnTimer",
         "Spell",
         "SpellId",
         "CollectingTargetsContinuously",
@@ -92,6 +106,8 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Destructed),
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.View),
+        typeof(Code.Common.ViewPath),
+        typeof(Code.Common.ViewPrefab),
         typeof(Code.Gameplay.Common.Damage),
         typeof(Code.Gameplay.Common.DamageTaken),
         typeof(Code.Gameplay.Common.Id),
@@ -102,9 +118,12 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.DeathZone.DeathZone),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.LifeTime.CurrentHp),
+        typeof(Code.Gameplay.Features.LifeTime.Dead),
         typeof(Code.Gameplay.Features.LifeTime.MaxHp),
+        typeof(Code.Gameplay.Features.LifeTime.ProcessingDeath),
         typeof(Code.Gameplay.Features.Movement.Direction),
         typeof(Code.Gameplay.Features.Movement.Falling),
+        typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Orb.ActiveOrbs),
@@ -113,6 +132,8 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Orb.OrbIcon),
         typeof(Code.Gameplay.Features.Orb.OrbId),
         typeof(Code.Gameplay.Features.Orb.UltimatePressed),
+        typeof(Code.Gameplay.Features.Spells.ActivatedSpell),
+        typeof(Code.Gameplay.Features.Spells.SpawnTimer),
         typeof(Code.Gameplay.Features.Spells.Spell),
         typeof(Code.Gameplay.Features.Spells.SpellId),
         typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContinuously),

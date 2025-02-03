@@ -23,7 +23,12 @@ namespace Code.Gameplay.Features.Orb.Systems
                 if (_inputService.IsUltimatePressed)
                 {
                     invoker.isUltimatePressed = true;
-                    Debug.Log("Ультмейт нажат");
+                    Debug.Log("Ультимейт нажали");
+                }
+                else if(invoker.isUltimatePressed)
+                {
+                    invoker.isUltimatePressed = false;
+                    Debug.Log("Ультимейт отжали");
                 }
             }
         }

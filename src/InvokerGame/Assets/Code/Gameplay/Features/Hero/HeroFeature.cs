@@ -7,7 +7,11 @@ namespace Code.Gameplay.Features.Hero
     {
         public HeroFeature(ISystemFactory systems)
         {
+            Add(systems.Create<InitializeInvokerSystem>());
             Add(systems.Create<SetHeroDirectionByInputSystem>());
+            
+            Add(systems.Create<InvokerDeathSystem>());
+            Add(systems.Create<FinalizeInvokerDeathProcessingSystem>());
         }
     }
 }

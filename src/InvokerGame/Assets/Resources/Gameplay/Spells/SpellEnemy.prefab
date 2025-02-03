@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 7806928736531564807}
   - component: {fileID: 7468953672908629319}
   - component: {fileID: 7821029521470962480}
-  - component: {fileID: 7817777368321562769}
-  - component: {fileID: -1687600733678197708}
   m_Layer: 0
   m_Name: SpellEnemy
   m_TagString: Untagged
@@ -77,32 +75,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 7806928736531564807}
   SpriteRenderer: {fileID: 1615858053583339447}
---- !u!114 &7817777368321562769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553098308666287286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441c64d2310f4d4282bf12f8423834c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityBehaviour: {fileID: 7806928736531564807}
---- !u!114 &-1687600733678197708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553098308666287286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2412721e09ba4d4f889a50a80bf69fcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityView: {fileID: 7806928736531564807}
 --- !u!1 &7177197545427559287
 GameObject:
   m_ObjectHideFlags: 0

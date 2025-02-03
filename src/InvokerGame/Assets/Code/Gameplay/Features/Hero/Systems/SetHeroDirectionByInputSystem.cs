@@ -26,5 +26,4 @@ namespace Code.Gameplay.Features.Hero.Systems
             }
         }
     }
-
 }
