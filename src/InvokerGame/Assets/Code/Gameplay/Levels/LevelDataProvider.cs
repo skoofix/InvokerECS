@@ -10,5 +10,6 @@ namespace Code.Gameplay.Levels
     {
       StartPoint = startPoint;
     }
+    
   }
 }

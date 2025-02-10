@@ -7,12 +7,8 @@ namespace Code.Gameplay.Features.Orb
     {
         public OrbFeature(ISystemFactory systems)
         {
-            //Add(systems.Create<ActiveOrbsSystem>());
-           // Add(systems.Create<CastSpellSystem>());
-           
-           Add(systems.Create<CreateOrbSystem>());
-           Add(systems.Create<AddOrbToActiveSystem>());
-           Add(systems.Create<CastSpellTestSystem>());
+            Add(systems.Create<CreateOrbSystem>());
+            Add(systems.Create<AddOrbToActiveSystem>());
         }
     }
 }

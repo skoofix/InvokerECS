@@ -1,65 +1,56 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Code.Gameplay.Features.Orb;
 using Entitas;
-using UnityEngine;
 
-namespace Code.Gameplay.Features.Orb.Systems
+namespace Code.Gameplay.Features.Invoker.Systems
 {
-    public class ActiveOrbsSystem : IExecuteSystem
+    public class CastSpellSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _invokers;
-        private readonly IGroup<GameEntity> _inputs;
+        private readonly IGroup<GameEntity> _spells;
+        private readonly IGroup<GameEntity> _orbs;
 
-        public ActiveOrbsSystem(GameContext game)
+        public CastSpellSystem(GameContext game)
         {
             _invokers = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Invoker));
-            
-            _inputs = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Input, 
-                    GameMatcher.SkillKey));
+                    GameMatcher.Invoker,
+                    GameMatcher.UltimatePressed));
+
+            _spells = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.Spell)
+                .NoneOf(
+                    GameMatcher.ActivatedSpell,
+                    GameMatcher.ReachedEnd));
         }
 
         public void Execute()
         {
-            foreach (GameEntity input in _inputs)
-            foreach (GameEntity invoker in _invokers)
+            foreach (GameEntity invoker in _invokers.GetEntities())
+            foreach (GameEntity spell in _spells.GetEntities())
             {
-                OrbTypeId? orbType = MapKeyToOrb(input.SkillKey);
+                List<OrbTypeId> invokerOrbs = invoker.ActiveOrbsForTest
+                    .Select(orbEntity => orbEntity.OrbId)
+                    .ToList();
 
-                if (!orbType.HasValue)
-                    continue;
-
-                AddOrbToActive(invoker, orbType.Value);
+                if (IsMatchCombination(invokerOrbs, spell.OrbForCast))
+                {
+                    spell.isActivatedSpell = true;
+                    break;
+                }
             }
         }
-
-        private OrbTypeId? MapKeyToOrb(KeyCode key)
+        
+        private bool IsMatchCombination(List<OrbTypeId> invokerOrbs, List<OrbTypeId> spellOrbs)
         {
-            return key switch
-            {
-                KeyCode.Q => OrbTypeId.Quas,
-                KeyCode.W => OrbTypeId.Wex,
-                KeyCode.E => OrbTypeId.Exort,
-                _ => null
-            };
-        }
-
-        private void AddOrbToActive(GameEntity invoker, OrbTypeId orbType)
-        {
-            List<OrbTypeId> activeOrbs = invoker.hasActiveOrbs
-                ? invoker.activeOrbs.Value
-                : new List<OrbTypeId>();
-
-            if (activeOrbs.Count >= 3)
-                activeOrbs.RemoveAt(0);
-
-            activeOrbs.Add(orbType);
-
-            invoker.ReplaceActiveOrbs(activeOrbs);
+            return invokerOrbs.Count == spellOrbs.Count && 
+                   !invokerOrbs.Except(spellOrbs).Any() && 
+                   !spellOrbs.Except(invokerOrbs).Any();
         }
     }
-
+    
     public class AddOrbToActiveSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _invokers;

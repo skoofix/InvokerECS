@@ -10,6 +10,8 @@ namespace Code.Gameplay.Features.Invoker
             Add(systems.Create<InitializeInvokerSystem>());
             
             Add(systems.Create<UltimatePressedSystem>());
+            Add(systems.Create<CastSpellSystem>());
+            
             Add(systems.Create<InvokerDeathSystem>());
             Add(systems.Create<FinalizeInvokerDeathProcessingSystem>());
         }

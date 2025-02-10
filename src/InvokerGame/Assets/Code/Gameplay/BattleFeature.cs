@@ -19,9 +19,10 @@ namespace Code.Gameplay
             Add(systems.Create<InputFeature>());
             Add(systems.Create<BindViewFeature>());
 
-            Add(systems.Create<InvokerFeature>());
             Add(systems.Create<OrbFeature>());
+            Add(systems.Create<InvokerFeature>());
             Add(systems.Create<SpellFeature>());
+            
             Add(systems.Create<DeathFeature>());
 
             Add(systems.Create<MovementFeature>());
