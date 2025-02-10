@@ -13,12 +13,36 @@ MonoBehaviour:
   m_Name: SpellsConfig
   m_EditorClassIdentifier: 
   spells:
-  - spellId: 1
-    icon: {fileID: 21300000, guid: 70e913906f49c3e46b0211249a7311ac, type: 3}
-    orbsForCast: 000000000000000002000000
-  - spellId: 2
-    icon: {fileID: 21300000, guid: 2def333070b391742bceb325360b4bb5, type: 3}
-    orbsForCast: 000000000000000001000000
   - spellId: 0
     icon: {fileID: 0}
     orbsForCast: 
+  - spellId: 1
+    icon: {fileID: 21300000, guid: 70e913906f49c3e46b0211249a7311ac, type: 3}
+    orbsForCast: 000000000000000000000000
+  - spellId: 2
+    icon: {fileID: 21300000, guid: 2def333070b391742bceb325360b4bb5, type: 3}
+    orbsForCast: 000000000000000001000000
+  - spellId: 3
+    icon: {fileID: 21300000, guid: 88b581c153cb9184bbc8d6cce0321e92, type: 3}
+    orbsForCast: 000000000000000002000000
+  - spellId: 4
+    icon: {fileID: 21300000, guid: bba1d7f5bc896cf419eff920b2b8871a, type: 3}
+    orbsForCast: 010000000100000001000000
+  - spellId: 5
+    icon: {fileID: 21300000, guid: 88184757cf9eeb148b12fdd30d9efb09, type: 3}
+    orbsForCast: 010000000100000000000000
+  - spellId: 6
+    icon: {fileID: 21300000, guid: 2e02836eb03ddd141a1dd60a548bd49a, type: 3}
+    orbsForCast: 010000000100000002000000
+  - spellId: 7
+    icon: {fileID: 21300000, guid: 7a8e4bde56196d54a80ad316d6cc37cf, type: 3}
+    orbsForCast: 020000000200000002000000
+  - spellId: 8
+    icon: {fileID: 21300000, guid: 31c141f4cdb46c542b1b11aa7bac7d97, type: 3}
+    orbsForCast: 020000000200000000000000
+  - spellId: 9
+    icon: {fileID: 21300000, guid: 10774f71225b14f41beb288c0c46d434, type: 3}
+    orbsForCast: 020000000200000001000000
+  - spellId: 10
+    icon: {fileID: 21300000, guid: 541841fdf6d660343a9285d303e12f0b, type: 3}
+    orbsForCast: 000000000100000002000000

@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using Entitas;
-using UnityEngine.UI;
+﻿using Entitas;
 
 namespace Code.Gameplay.Features.Orb
 {
     [Game] public class Orb : IComponent { }
-    [Game] public class OrbIcon : IComponent { public Image Value; }
+    [Game] public class Wex : IComponent { }
+    [Game] public class Quas : IComponent { }
+    [Game] public class Exort : IComponent { }
+    [Game] public class Active : IComponent { }
     [Game] public class OrbId : IComponent { public OrbTypeId Value; }
-    [Game] public class ActiveOrbs : IComponent { public List<OrbTypeId> Value; }
-    
-    [Game] public class Invoker : IComponent { }
-    [Game] public class UltimatePressed : IComponent { }
+
 }

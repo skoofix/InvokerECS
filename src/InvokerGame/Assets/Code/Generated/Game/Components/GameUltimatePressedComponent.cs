@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Orb.UltimatePressed ultimatePressedComponent = new Code.Gameplay.Features.Orb.UltimatePressed();
+    static readonly Code.Gameplay.Features.Invoker.UltimatePressed ultimatePressedComponent = new Code.Gameplay.Features.Invoker.UltimatePressed();
 
     public bool isUltimatePressed {
         get { return HasComponent(GameComponentsLookup.UltimatePressed); }

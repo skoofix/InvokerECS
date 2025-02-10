@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Entitas;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Spells.Systems
@@ -20,8 +21,10 @@ namespace Code.Gameplay.Features.Spells.Systems
         {
             foreach (GameEntity spell in _spells)
             {
-                //if(spell.hasSpellAnimator)
-                // spell.SpellAnimator.PlayDied();
+                spell.isMovementAvailable = false;
+                
+                if(spell.hasSpellAnimator)
+                    spell.SpellAnimator.PlayDied();
 
                 spell.ReplaceSelfDestructTimer(2);
                 Debug.Log("попал в спелдез");

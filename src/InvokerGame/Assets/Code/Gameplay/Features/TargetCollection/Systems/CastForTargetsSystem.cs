@@ -29,7 +29,6 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                 entity.TargetBuffer.AddRange(TargetsInRadius(entity));
 
                 entity.isReadyToCollectTargets = false;
-                
             }
         }
 

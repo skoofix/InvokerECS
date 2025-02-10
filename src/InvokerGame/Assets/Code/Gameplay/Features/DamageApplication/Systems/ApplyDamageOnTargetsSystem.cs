@@ -23,10 +23,15 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
             {
                 GameEntity entity = _game.GetEntityWithId(targetId);
 
-                if (entity.hasCurrentHp)
-                {
-                    entity.ReplaceCurrentHp(entity.CurrentHp - damageDealer.Damage);
-                }
+               // if (entity.hasCurrentHp)
+               // {
+               //     entity.ReplaceCurrentHp(entity.CurrentHp - damageDealer.Damage);
+               // }
+
+               if (entity.isSpell)
+               {
+                   entity.isReachedEnd = true;
+               }
             }
         }
     }

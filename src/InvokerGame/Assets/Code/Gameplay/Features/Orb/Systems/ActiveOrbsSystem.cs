@@ -11,8 +11,13 @@ namespace Code.Gameplay.Features.Orb.Systems
 
         public ActiveOrbsSystem(GameContext game)
         {
-            _invokers = game.GetGroup(GameMatcher.Invoker);
-            _inputs = game.GetGroup(GameMatcher.Input);
+            _invokers = game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.Invoker));
+            
+            _inputs = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.Input, 
+                    GameMatcher.SkillKey));
         }
 
         public void Execute()
@@ -20,10 +25,7 @@ namespace Code.Gameplay.Features.Orb.Systems
             foreach (GameEntity input in _inputs)
             foreach (GameEntity invoker in _invokers)
             {
-                if (!input.hasSkillKey)
-                    continue;
-
-                OrbTypeId? orbType = MapKeyToOrb(input.skillKey.Value);
+                OrbTypeId? orbType = MapKeyToOrb(input.SkillKey);
 
                 if (!orbType.HasValue)
                     continue;
@@ -45,7 +47,7 @@ namespace Code.Gameplay.Features.Orb.Systems
 
         private void AddOrbToActive(GameEntity invoker, OrbTypeId orbType)
         {
-            var activeOrbs = invoker.hasActiveOrbs
+            List<OrbTypeId> activeOrbs = invoker.hasActiveOrbs
                 ? invoker.activeOrbs.Value
                 : new List<OrbTypeId>();
 
@@ -55,6 +57,53 @@ namespace Code.Gameplay.Features.Orb.Systems
             activeOrbs.Add(orbType);
 
             invoker.ReplaceActiveOrbs(activeOrbs);
+        }
+    }
+
+    public class AddOrbToActiveSystem : IExecuteSystem
+    {
+        private readonly IGroup<GameEntity> _invokers;
+        private readonly IGroup<GameEntity> _orbs;
+
+        public AddOrbToActiveSystem(GameContext game)
+        {
+            _invokers = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.Invoker, 
+                    GameMatcher.ActiveOrbsForTest));
+
+            _orbs = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.Orb,
+                    GameMatcher.Spawning));
+        }
+
+        public void Execute()
+        {
+            foreach (GameEntity invoker in _invokers)    
+            foreach (GameEntity orb in _orbs.GetEntities())    
+            {
+                AddOrbToActive(invoker, orb);
+                orb.isSpawning = false;
+                orb.isActive = true;
+            }
+        }
+        
+        private void AddOrbToActive(GameEntity invoker, GameEntity orb)
+        {
+            List<GameEntity> activeOrbs = invoker.ActiveOrbsForTest;
+
+            if (activeOrbs.Count >= 3)
+            {
+                GameEntity s = activeOrbs[0];
+                
+                activeOrbs.RemoveAt(0);
+                s.isDestructed = true;
+            }
+            
+            activeOrbs.Add(orb);
+
+            invoker.ReplaceActiveOrbsForTest(activeOrbs);
         }
     }
 }

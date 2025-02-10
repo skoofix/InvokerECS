@@ -21,39 +21,46 @@ public static class GameComponentsLookup {
     public const int Transform = 10;
     public const int WorldPosition = 11;
     public const int DeathZone = 12;
-    public const int Hero = 13;
-    public const int CurrentHp = 14;
-    public const int Dead = 15;
-    public const int MaxHp = 16;
-    public const int ProcessingDeath = 17;
-    public const int Direction = 18;
-    public const int Falling = 19;
-    public const int MovementAvailable = 20;
-    public const int Moving = 21;
-    public const int Speed = 22;
-    public const int ActiveOrbs = 23;
-    public const int Invoker = 24;
-    public const int Orb = 25;
-    public const int OrbIcon = 26;
-    public const int OrbId = 27;
-    public const int UltimatePressed = 28;
-    public const int ActivatedSpell = 29;
-    public const int SpawnTimer = 30;
-    public const int Spell = 31;
-    public const int SpellId = 32;
-    public const int CollectingTargetsContinuously = 33;
-    public const int CollectTargetsInterval = 34;
-    public const int CollectTargetsTimer = 35;
-    public const int LayerMask = 36;
-    public const int ProcessedTargets = 37;
-    public const int Reached = 38;
-    public const int ReadyToCollectTargets = 39;
-    public const int TargetBuffer = 40;
-    public const int AxisInput = 41;
-    public const int Input = 42;
-    public const int SkillKey = 43;
+    public const int ActiveOrbs = 13;
+    public const int ActiveOrbsForTest = 14;
+    public const int Invoker = 15;
+    public const int UltimatePressed = 16;
+    public const int CurrentHp = 17;
+    public const int Dead = 18;
+    public const int MaxHp = 19;
+    public const int ProcessingDeath = 20;
+    public const int Direction = 21;
+    public const int Falling = 22;
+    public const int MovementAvailable = 23;
+    public const int Moving = 24;
+    public const int Speed = 25;
+    public const int Active = 26;
+    public const int Exort = 27;
+    public const int Orb = 28;
+    public const int OrbId = 29;
+    public const int Quas = 30;
+    public const int Wex = 31;
+    public const int ActivatedSpell = 32;
+    public const int OrbForCast = 33;
+    public const int ReachedEnd = 34;
+    public const int Spawning = 35;
+    public const int SpawnTimer = 36;
+    public const int Spell = 37;
+    public const int SpellAnimator = 38;
+    public const int SpellId = 39;
+    public const int CollectingTargetsContinuously = 40;
+    public const int CollectTargetsInterval = 41;
+    public const int CollectTargetsTimer = 42;
+    public const int LayerMask = 43;
+    public const int ProcessedTargets = 44;
+    public const int Reached = 45;
+    public const int ReadyToCollectTargets = 46;
+    public const int TargetBuffer = 47;
+    public const int AxisInput = 48;
+    public const int Input = 49;
+    public const int SkillKey = 50;
 
-    public const int TotalComponents = 44;
+    public const int TotalComponents = 51;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -69,7 +76,10 @@ public static class GameComponentsLookup {
         "Transform",
         "WorldPosition",
         "DeathZone",
-        "Hero",
+        "ActiveOrbs",
+        "ActiveOrbsForTest",
+        "Invoker",
+        "UltimatePressed",
         "CurrentHp",
         "Dead",
         "MaxHp",
@@ -79,15 +89,19 @@ public static class GameComponentsLookup {
         "MovementAvailable",
         "Moving",
         "Speed",
-        "ActiveOrbs",
-        "Invoker",
+        "Active",
+        "Exort",
         "Orb",
-        "OrbIcon",
         "OrbId",
-        "UltimatePressed",
+        "Quas",
+        "Wex",
         "ActivatedSpell",
+        "OrbForCast",
+        "ReachedEnd",
+        "Spawning",
         "SpawnTimer",
         "Spell",
+        "SpellAnimator",
         "SpellId",
         "CollectingTargetsContinuously",
         "CollectTargetsInterval",
@@ -116,7 +130,10 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.DeathZone.DeathZone),
-        typeof(Code.Gameplay.Features.Hero.Hero),
+        typeof(Code.Gameplay.Features.Invoker.ActiveOrbs),
+        typeof(Code.Gameplay.Features.Invoker.ActiveOrbsForTest),
+        typeof(Code.Gameplay.Features.Invoker.Invoker),
+        typeof(Code.Gameplay.Features.Invoker.UltimatePressed),
         typeof(Code.Gameplay.Features.LifeTime.CurrentHp),
         typeof(Code.Gameplay.Features.LifeTime.Dead),
         typeof(Code.Gameplay.Features.LifeTime.MaxHp),
@@ -126,15 +143,19 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.Speed),
-        typeof(Code.Gameplay.Features.Orb.ActiveOrbs),
-        typeof(Code.Gameplay.Features.Orb.Invoker),
+        typeof(Code.Gameplay.Features.Orb.Active),
+        typeof(Code.Gameplay.Features.Orb.Exort),
         typeof(Code.Gameplay.Features.Orb.Orb),
-        typeof(Code.Gameplay.Features.Orb.OrbIcon),
         typeof(Code.Gameplay.Features.Orb.OrbId),
-        typeof(Code.Gameplay.Features.Orb.UltimatePressed),
+        typeof(Code.Gameplay.Features.Orb.Quas),
+        typeof(Code.Gameplay.Features.Orb.Wex),
         typeof(Code.Gameplay.Features.Spells.ActivatedSpell),
+        typeof(Code.Gameplay.Features.Spells.OrbForCastComponent),
+        typeof(Code.Gameplay.Features.Spells.ReachedEnd),
+        typeof(Code.Gameplay.Features.Spells.Spawning),
         typeof(Code.Gameplay.Features.Spells.SpawnTimer),
         typeof(Code.Gameplay.Features.Spells.Spell),
+        typeof(Code.Gameplay.Features.Spells.SpellAnimatorComponent),
         typeof(Code.Gameplay.Features.Spells.SpellId),
         typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContinuously),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),

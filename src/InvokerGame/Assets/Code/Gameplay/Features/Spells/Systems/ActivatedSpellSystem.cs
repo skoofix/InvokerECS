@@ -14,7 +14,8 @@ namespace Code.Gameplay.Features.Spells.Systems
                 .AllOf(
                     GameMatcher.Spell,
                     GameMatcher.ActivatedSpell)
-                .NoneOf(GameMatcher.Dead));
+                .NoneOf(
+                    GameMatcher.Dead));
         }
 
         public void Execute()

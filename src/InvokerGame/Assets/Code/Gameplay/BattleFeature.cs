@@ -1,6 +1,6 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.DamageApplication;
-using Code.Gameplay.Features.Hero;
+using Code.Gameplay.Features.Invoker;
 using Code.Gameplay.Features.LifeTime;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Orb;
@@ -19,7 +19,7 @@ namespace Code.Gameplay
             Add(systems.Create<InputFeature>());
             Add(systems.Create<BindViewFeature>());
 
-            Add(systems.Create<HeroFeature>());
+            Add(systems.Create<InvokerFeature>());
             Add(systems.Create<OrbFeature>());
             Add(systems.Create<SpellFeature>());
             Add(systems.Create<DeathFeature>());
