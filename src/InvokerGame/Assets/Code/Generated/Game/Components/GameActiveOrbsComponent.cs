@@ -6,6 +6,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.Gameplay.Features.Invoker;
+
 public sealed partial class GameMatcher {
 
     static Entitas.IMatcher<GameEntity> _matcherActiveOrbs;
@@ -34,10 +36,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Features.Invoker.ActiveOrbs activeOrbs { get { return (Code.Gameplay.Features.Invoker.ActiveOrbs)GetComponent(GameComponentsLookup.ActiveOrbs); } }
-    public System.Collections.Generic.List<Code.Gameplay.Features.Orb.OrbTypeId> ActiveOrbs { get { return activeOrbs.Value; } }
+    public System.Collections.Generic.List<OrbTypeId> ActiveOrbs { get { return activeOrbs.Value; } }
     public bool hasActiveOrbs { get { return HasComponent(GameComponentsLookup.ActiveOrbs); } }
 
-    public GameEntity AddActiveOrbs(System.Collections.Generic.List<Code.Gameplay.Features.Orb.OrbTypeId> newValue) {
+    public GameEntity AddActiveOrbs(System.Collections.Generic.List<OrbTypeId> newValue) {
         var index = GameComponentsLookup.ActiveOrbs;
         var component = (Code.Gameplay.Features.Invoker.ActiveOrbs)CreateComponent(index, typeof(Code.Gameplay.Features.Invoker.ActiveOrbs));
         component.Value = newValue;
@@ -45,7 +47,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceActiveOrbs(System.Collections.Generic.List<Code.Gameplay.Features.Orb.OrbTypeId> newValue) {
+    public GameEntity ReplaceActiveOrbs(System.Collections.Generic.List<OrbTypeId> newValue) {
         var index = GameComponentsLookup.ActiveOrbs;
         var component = (Code.Gameplay.Features.Invoker.ActiveOrbs)CreateComponent(index, typeof(Code.Gameplay.Features.Invoker.ActiveOrbs));
         component.Value = newValue;

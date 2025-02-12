@@ -3,7 +3,6 @@ using Code.Gameplay.Features.DamageApplication;
 using Code.Gameplay.Features.Invoker;
 using Code.Gameplay.Features.LifeTime;
 using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Orb;
 using Code.Gameplay.Features.Spells;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.Input;
@@ -18,8 +17,7 @@ namespace Code.Gameplay
         {
             Add(systems.Create<InputFeature>());
             Add(systems.Create<BindViewFeature>());
-
-            Add(systems.Create<OrbFeature>());
+            
             Add(systems.Create<InvokerFeature>());
             Add(systems.Create<SpellFeature>());
             

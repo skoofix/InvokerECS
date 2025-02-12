@@ -6,6 +6,8 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using Code.Gameplay.Features.Invoker;
+
 public sealed partial class GameMatcher {
 
     static Entitas.IMatcher<GameEntity> _matcherOrbForCast;
@@ -34,10 +36,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Features.Spells.OrbForCastComponent orbForCast { get { return (Code.Gameplay.Features.Spells.OrbForCastComponent)GetComponent(GameComponentsLookup.OrbForCast); } }
-    public System.Collections.Generic.List<Code.Gameplay.Features.Orb.OrbTypeId> OrbForCast { get { return orbForCast.Value; } }
+    public System.Collections.Generic.List<OrbTypeId> OrbForCast { get { return orbForCast.Value; } }
     public bool hasOrbForCast { get { return HasComponent(GameComponentsLookup.OrbForCast); } }
 
-    public GameEntity AddOrbForCast(System.Collections.Generic.List<Code.Gameplay.Features.Orb.OrbTypeId> newValue) {
+    public GameEntity AddOrbForCast(System.Collections.Generic.List<OrbTypeId> newValue) {
         var index = GameComponentsLookup.OrbForCast;
         var component = (Code.Gameplay.Features.Spells.OrbForCastComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Spells.OrbForCastComponent));
         component.Value = newValue;
@@ -45,7 +47,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceOrbForCast(System.Collections.Generic.List<Code.Gameplay.Features.Orb.OrbTypeId> newValue) {
+    public GameEntity ReplaceOrbForCast(System.Collections.Generic.List<OrbTypeId> newValue) {
         var index = GameComponentsLookup.OrbForCast;
         var component = (Code.Gameplay.Features.Spells.OrbForCastComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Spells.OrbForCastComponent));
         component.Value = newValue;

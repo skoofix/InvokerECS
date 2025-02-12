@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
-using Code.Gameplay.Features.Orb;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
@@ -22,7 +21,7 @@ namespace Code.Gameplay.Features.Invoker.Factory
                 .AddId(_identifiers.Next())
                 .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
-                .AddActiveOrbsForTest(new List<GameEntity>())
+                .AddActiveOrbs(new List<OrbTypeId>())
                 .AddViewPath("Gameplay/Spells/Hero")
                 .AddMaxHp(3)
                 .AddCurrentHp(3)

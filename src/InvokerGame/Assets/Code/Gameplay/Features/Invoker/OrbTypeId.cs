@@ -1,4 +1,4 @@
-﻿namespace Code.Gameplay.Features.Orb
+﻿namespace Code.Gameplay.Features.Invoker
 {
     public enum OrbTypeId
     {

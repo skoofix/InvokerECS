@@ -4,7 +4,6 @@ using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Invoker.Factory;
-using Code.Gameplay.Features.Orb.Factory;
 using Code.Gameplay.Features.Spells.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
@@ -56,7 +55,6 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
       Container.Bind<IInvokerFactory>().To<InvokerFactory>().AsSingle();
       Container.Bind<ISpellFactory>().To<SpellFactory>().AsSingle();
-      Container.Bind<IOrbFactory>().To<OrbFactory>().AsSingle();
     }
 
     

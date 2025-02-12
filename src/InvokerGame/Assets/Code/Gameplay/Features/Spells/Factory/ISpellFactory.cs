@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Code.Gameplay.Features.Orb;
+using Code.Gameplay.Features.Invoker;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Spells.Factory

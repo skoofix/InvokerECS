@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Code.Gameplay.Features.Orb;
 using Entitas;
 
 namespace Code.Gameplay.Features.Invoker
@@ -9,5 +8,4 @@ namespace Code.Gameplay.Features.Invoker
     
     [Game] public class ActiveOrbs : IComponent { public List<OrbTypeId> Value; }
     
-    [Game] public class ActiveOrbsForTest : IComponent { public List<GameEntity> Value; }
 }
