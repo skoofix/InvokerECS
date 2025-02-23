@@ -21,11 +21,15 @@ namespace Code.Gameplay.Features.Invoker.Factory
                 .AddId(_identifiers.Next())
                 .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
-                .AddActiveOrbs(new List<OrbTypeId>())
-                .AddViewPath("Gameplay/Spells/Hero")
+                .AddActiveOrbs(new List<OrbTypeId>() {
+                    OrbTypeId.Quas,
+                    OrbTypeId.Wex,
+                    OrbTypeId.Exort
+                })
                 .AddMaxHp(3)
                 .AddCurrentHp(3)
                 .With(x => x.isInvoker = true)
+                .With(x => x.isOrbChanged = true)
                 .With(x => x.isUltimatePressed = false);
         }
     }

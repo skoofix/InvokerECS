@@ -1,4 +1,6 @@
-﻿using Code.Gameplay.Features.Spells;
+﻿using Code.Gameplay.Features.Invoker;
+using Code.Gameplay.Features.Invoker.Config;
+using Code.Gameplay.Features.Spells;
 
 namespace Code.Gameplay.StaticData
 {
@@ -7,5 +9,7 @@ namespace Code.Gameplay.StaticData
     void LoadAll();
     SpellsConfig GetSpellConfig();
     SpellDefinition GetSpellDefinition(SpellTypeId spellTypeId);
+    OrbConfig GetOrbConfig();
+    OrbDefinition GetOrbDefinition(OrbTypeId orbTypeId);
   }
 }

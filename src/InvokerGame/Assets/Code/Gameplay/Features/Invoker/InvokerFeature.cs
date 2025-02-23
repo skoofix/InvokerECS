@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.Invoker
             Add(systems.Create<InitializeInvokerSystem>());
             
             Add(systems.Create<AddOrbToActiveSystem>());
+            Add(systems.Create<UpdateOrbsUISystem>());
             Add(systems.Create<UltimatePressedSystem>());
             Add(systems.Create<CastSpellSystem>());
             
