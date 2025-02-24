@@ -8,6 +8,7 @@ using Code.Gameplay.Features.Spells.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
@@ -27,6 +28,8 @@ namespace Code.Infrastructure.Installers
       BindCommonServices();
       BindSystemFactory();
       BindContexts();
+      BindUIFactories();
+      BindUIServices();
       BindGameplayServices();
       BindGameplayFactories();
       BindCameraProvider();
@@ -57,7 +60,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<ISpellFactory>().To<SpellFactory>().AsSingle();
     }
 
-    
+
     private void BindInfrastructureServices()
     {
       Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
@@ -87,6 +90,17 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
     }
+
+    private void BindUIFactories()
+    {
+      Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
+    }
+
+    private void BindUIServices()
+    {
+      Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+    }
+
     
     public void Initialize()
     {

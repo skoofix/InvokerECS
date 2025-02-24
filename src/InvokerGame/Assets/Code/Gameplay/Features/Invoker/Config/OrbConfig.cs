@@ -8,11 +8,11 @@ namespace Code.Gameplay.Features.Invoker.Config
     {
         public List<OrbDefinition> orbs;
     }
-    
+
     [System.Serializable]
     public class OrbDefinition
     {
-        public OrbTypeId orbId;
+        public OrbTypeId TypeId;
         public Sprite icon;
     }
 }

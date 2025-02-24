@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: OrbConfig
   m_EditorClassIdentifier: 
   orbs:
-  - orbId: 0
-    icon: {fileID: 21300000, guid: 8175f7c7b00a45e4c987c9a2980d8900, type: 3}
-  - orbId: 1
+  - TypeId: 1
     icon: {fileID: 21300000, guid: fdd3d2b196f120b4e81f21950c75538e, type: 3}
-  - orbId: 2
+  - TypeId: 0
+    icon: {fileID: 21300000, guid: 8175f7c7b00a45e4c987c9a2980d8900, type: 3}
+  - TypeId: 2
     icon: {fileID: 21300000, guid: 3f12a2364bc0f494694e11d613155355, type: 3}
