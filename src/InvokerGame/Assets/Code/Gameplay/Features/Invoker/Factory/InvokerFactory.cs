@@ -15,11 +15,10 @@ namespace Code.Gameplay.Features.Invoker.Factory
             _identifiers = identifiers;
         }
 
-        public GameEntity CreateInvoker(Vector3 at)
+        public GameEntity CreateInvoker()
         {
             return CreateEntity.Empty()
                 .AddId(_identifiers.Next())
-                .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
                 .AddActiveOrbs(new List<OrbTypeId>() {
                     OrbTypeId.Quas,

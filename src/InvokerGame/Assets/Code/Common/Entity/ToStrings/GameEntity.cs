@@ -5,6 +5,7 @@ using Code.Common.Entity.ToStrings;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Invoker;
 using Code.Gameplay.Features.Spells;
+using Code.Gameplay.Features.VFX;
 using Entitas;
 using UnityEngine;
 
@@ -39,6 +40,9 @@ public sealed partial class GameEntity : INamedEntity
 
                     case nameof(Spell):
                         return PrintEnemy();
+                    
+                    case nameof(VFX):
+                        return PrintVFX();
                 }
             }
         }
@@ -62,5 +66,10 @@ public sealed partial class GameEntity : INamedEntity
         .With(s => s.Append($"Id:{Id}"), when: hasId)
         .ToString();
 
+    private string PrintVFX() =>
+        new StringBuilder($"VFX ")
+            .With(s => s.Append($"Id:{Id}"), when: hasId)
+            .ToString();
+    
     public string BaseToString() => base.ToString();
 }

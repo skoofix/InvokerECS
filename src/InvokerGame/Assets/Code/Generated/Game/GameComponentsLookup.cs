@@ -51,11 +51,13 @@ public static class GameComponentsLookup {
     public const int Reached = 40;
     public const int ReadyToCollectTargets = 41;
     public const int TargetBuffer = 42;
-    public const int AxisInput = 43;
-    public const int Input = 44;
-    public const int SkillKey = 45;
+    public const int Explosion = 43;
+    public const int VFX = 44;
+    public const int AxisInput = 45;
+    public const int Input = 46;
+    public const int SkillKey = 47;
 
-    public const int TotalComponents = 46;
+    public const int TotalComponents = 48;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -101,6 +103,8 @@ public static class GameComponentsLookup {
         "Reached",
         "ReadyToCollectTargets",
         "TargetBuffer",
+        "Explosion",
+        "VFX",
         "AxisInput",
         "Input",
         "SkillKey"
@@ -150,6 +154,8 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.TargetCollection.Reached),
         typeof(Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
         typeof(Code.Gameplay.Features.TargetCollection.TargetBuffer),
+        typeof(Code.Gameplay.Features.VFX.Explosion),
+        typeof(Code.Gameplay.Features.VFX.VFX),
         typeof(Code.Gameplay.Input.AxisInput),
         typeof(Code.Gameplay.Input.Input),
         typeof(Code.Gameplay.Input.SkillKey)

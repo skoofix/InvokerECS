@@ -24,6 +24,7 @@ namespace Code.Gameplay.Features.Spells.Systems
             {
                 spell.isDead = true;
                 spell.isProcessingDeath = true;
+                spell.isMovementAvailable = false;
             }
         }
     }
