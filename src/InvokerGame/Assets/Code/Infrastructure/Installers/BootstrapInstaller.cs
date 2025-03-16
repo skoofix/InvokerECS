@@ -19,6 +19,7 @@ using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.Progress.Provider;
+using Code.Progress.SaveLoad;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -81,6 +82,7 @@ namespace Code.Infrastructure.Installers
         private void BindProgressServices()
         {
             Container.Bind<IProgressProvider>().To<ProgressProvider>().AsSingle();
+            Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
         }
         
         private void BindGameplayServices()

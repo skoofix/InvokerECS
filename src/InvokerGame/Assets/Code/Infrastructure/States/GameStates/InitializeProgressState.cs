@@ -2,6 +2,7 @@ using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Data;
 using Code.Progress.Provider;
+using Code.Progress.SaveLoad;
 
 namespace Code.Infrastructure.States.GameStates
 {
@@ -9,13 +10,16 @@ namespace Code.Infrastructure.States.GameStates
   {
     private readonly IGameStateMachine _stateMachine;
     private readonly IProgressProvider _progressProvider;
+    private readonly ISaveLoadService _saveLoadService;
 
     public InitializeProgressState(
       IGameStateMachine stateMachine,
-      IProgressProvider progressProvider)
+      IProgressProvider progressProvider,
+      ISaveLoadService saveLoadService)
     {
       _stateMachine = stateMachine;
       _progressProvider = progressProvider;
+      _saveLoadService = saveLoadService;
     }
     
     public void Enter()
@@ -27,7 +31,10 @@ namespace Code.Infrastructure.States.GameStates
 
     private void InitializeProgress()
     {
-      CreateNewProgress();
+      if (_saveLoadService.HasSavedProgress)
+        _saveLoadService.LoadProgress();
+      else
+        CreateNewProgress();
     }
 
     private void CreateNewProgress()
