@@ -31,7 +31,6 @@ namespace Code.Gameplay.Features.Invoker.Systems
             foreach (GameEntity invoker in _invokers.GetEntities())
             foreach (GameEntity spell in _spells.GetEntities())
             {
-
                 if (IsMatchCombination(invoker.ActiveOrbs, spell.OrbForCast))
                 {
                     spell.isActivatedSpell = true;

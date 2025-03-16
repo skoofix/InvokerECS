@@ -8,7 +8,7 @@ namespace Code.Gameplay.Features.Spells.Systems
         public void Initialize()
         {
             CreateEntity.Empty()
-                .AddSpawnTimer(10);
+                .AddSpawnTimer(3);
         }
     }
 }

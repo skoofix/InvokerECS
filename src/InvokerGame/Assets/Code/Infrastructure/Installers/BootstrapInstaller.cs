@@ -70,6 +70,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<Contexts>().FromInstance(Contexts.sharedInstance).AsSingle();
 
             Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
+            Container.Bind<MetaContext>().FromInstance(Contexts.sharedInstance.meta).AsSingle();
         }
 
         private void BindCameraProvider()

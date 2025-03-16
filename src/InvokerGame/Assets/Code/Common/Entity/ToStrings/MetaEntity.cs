@@ -10,7 +10,7 @@ using Entitas;
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
-public sealed partial class GameEntity : INamedEntity
+public sealed partial class MetaEntity : INamedEntity
 {
     private EntityPrinter _printer;
 
@@ -35,14 +35,6 @@ public sealed partial class GameEntity : INamedEntity
             {
                 switch (component.GetType().Name)
                 {
-                    case nameof(Invoker):
-                        return PrintHero();
-
-                    case nameof(Spell):
-                        return PrintEnemy();
-                    
-                    case nameof(VFX):
-                        return PrintVFX();
                 }
             }
         }
@@ -54,22 +46,5 @@ public sealed partial class GameEntity : INamedEntity
         return components.First().GetType().Name;
     }
 
-    private string PrintHero()
-    {
-      return new StringBuilder($"Hero ")
-        .With(s => s.Append($"Id:{Id}"), when: hasId)
-        .ToString();
-    }
-   
-    private string PrintEnemy() =>
-      new StringBuilder($"Enemy ")
-        .With(s => s.Append($"Id:{Id}"), when: hasId)
-        .ToString();
-
-    private string PrintVFX() =>
-        new StringBuilder($"VFX ")
-            .With(s => s.Append($"Id:{Id}"), when: hasId)
-            .ToString();
-    
     public string BaseToString() => base.ToString();
 }

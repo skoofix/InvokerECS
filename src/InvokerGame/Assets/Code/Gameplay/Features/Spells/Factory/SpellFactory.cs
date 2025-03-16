@@ -27,6 +27,7 @@ namespace Code.Gameplay.Features.Spells.Factory
                 .AddMaxHp(1)
                 .AddCurrentHp(1)
                 .AddDamage(1)
+                .AddScore(5)
                 .AddViewPath("Gameplay/Spells/SpellEnemy")
                 .AddOrbForCast(orbsForCast)
                 .With(x => x.isSpell = true)

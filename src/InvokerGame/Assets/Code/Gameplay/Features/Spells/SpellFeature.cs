@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Spells.Systems;
+﻿using Code.Gameplay.Features.Score.Systems;
+using Code.Gameplay.Features.Spells.Systems;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Spells
@@ -15,6 +16,7 @@ namespace Code.Gameplay.Features.Spells
             Add(systems.Create<FallingSystem>());
             
             Add(systems.Create<ActivatedSpellSystem>());
+            Add(systems.Create<AddScoreSystem>());
             Add(systems.Create<ReachEndImpactSystem>());
             
             Add(systems.Create<SpellDeathSystem>());
