@@ -1,9 +1,7 @@
-﻿using Entitas;
+﻿using Code.Progress;
 
 namespace Code.Gameplay.Features.Score
 {
-    [Game] public class Score : IComponent { public float Value; }
-    [Game] public class Storage : IComponent {  }
-    
-    [Game] public class ScoreHolder : IComponent {  }
+    [Game] public class Score : ISavedComponent { public float Value; }
+    [Game] public class Storage : ISavedComponent {  }
 }

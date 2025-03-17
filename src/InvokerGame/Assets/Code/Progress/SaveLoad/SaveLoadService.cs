@@ -13,12 +13,18 @@ namespace Code.Progress.SaveLoad
         
         private readonly GameContext _gameContext;
         private readonly IProgressProvider _progressProvider;
+
         public bool HasSavedProgress => PlayerPrefs.HasKey(PlayerProgressKey);
 
         public SaveLoadService(GameContext gameContext, IProgressProvider progressProvider)
         {
             _gameContext = gameContext;
             _progressProvider = progressProvider;
+        }
+
+        public void CreateProgress()
+        {
+            _progressProvider.SetProgressData(new ProgressData());
         }
 
         public void SaveProgress()

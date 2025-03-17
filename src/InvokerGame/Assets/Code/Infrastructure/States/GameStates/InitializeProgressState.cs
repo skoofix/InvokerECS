@@ -1,49 +1,43 @@
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
-using Code.Progress.Data;
-using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
+using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
-  public class InitializeProgressState : IState
-  {
-    private readonly IGameStateMachine _stateMachine;
-    private readonly IProgressProvider _progressProvider;
-    private readonly ISaveLoadService _saveLoadService;
-
-    public InitializeProgressState(
-      IGameStateMachine stateMachine,
-      IProgressProvider progressProvider,
-      ISaveLoadService saveLoadService)
+    public class InitializeProgressState : IState
     {
-      _stateMachine = stateMachine;
-      _progressProvider = progressProvider;
-      _saveLoadService = saveLoadService;
-    }
-    
-    public void Enter()
-    {
-      InitializeProgress();
+        private readonly IGameStateMachine _stateMachine;
+        private readonly ISaveLoadService _saveLoadService;
 
-      _stateMachine.Enter<LoadingHomeScreenState>();
-    }
+        public InitializeProgressState(IGameStateMachine stateMachine, ISaveLoadService saveLoadService)
+        {
+            _stateMachine = stateMachine;
+            _saveLoadService = saveLoadService;
+        }
 
-    private void InitializeProgress()
-    {
-      if (_saveLoadService.HasSavedProgress)
-        _saveLoadService.LoadProgress();
-      else
-        CreateNewProgress();
-    }
+        public void Enter()
+        {
+            InitializeProgress();
 
-    private void CreateNewProgress()
-    {
-      _progressProvider.SetProgressData(new ProgressData());
-    }
+            _stateMachine.Enter<LoadingHomeScreenState>();
+        }
 
-    public void Exit()
-    {
+        private void InitializeProgress()
+        {
+            if (_saveLoadService.HasSavedProgress)
+                _saveLoadService.LoadProgress();
+            else
+                CreateNewProgress();
+        }
+
+        private void CreateNewProgress()
+        {
+            _saveLoadService.CreateProgress();
+        }
+
+        public void Exit()
+        {
+        }
     }
-  }
 }
