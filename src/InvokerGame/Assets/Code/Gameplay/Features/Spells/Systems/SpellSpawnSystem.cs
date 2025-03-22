@@ -34,7 +34,7 @@ namespace Code.Gameplay.Features.Spells.Systems
 
                 if (timer.SpawnTimer <= 0)
                 {
-                    timer.ReplaceSpawnTimer(5);
+                    timer.ReplaceSpawnTimer(3);
                     SpawnSpell();
                 }
             }
@@ -68,7 +68,9 @@ namespace Code.Gameplay.Features.Spells.Systems
             return (SpellTypeId)enumValues.GetValue(randomIndex);
         }
 
-        private List<OrbTypeId> GetOrbsForCast(SpellDefinition spellDefinition) => 
+        
+        
+        private List<OrbTypeId> GetOrbsForCast(SpellDefinition spellDefinition) =>
             spellDefinition.orbsForCast;
     }
 }
