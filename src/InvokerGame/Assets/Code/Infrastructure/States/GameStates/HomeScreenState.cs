@@ -1,34 +1,35 @@
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
 using Code.Meta;
+using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class HomeScreenState : IState, IUpdateable
+    public class HomeScreenState : EndOfFrameExitState
     {
         private readonly ISystemFactory _systems;
-        private readonly GameContext _gameContext;
+        private readonly MetaContext _meta;
         private HomeScreenFeature _homeScreenFeature;
 
-        public HomeScreenState(ISystemFactory systems, GameContext gameContext)
+        public HomeScreenState(ISystemFactory systems, MetaContext meta)
         {
             _systems = systems;
-            _gameContext = gameContext;
+            _meta = meta;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             _homeScreenFeature = _systems.Create<HomeScreenFeature>();
             _homeScreenFeature.Initialize();
         }
 
-        public void Update()
+        override protected void OnUpdate()
         {
             _homeScreenFeature.Execute();
             _homeScreenFeature.Cleanup();
         }
 
-        public void Exit()
+        override protected void ExitOnEndOfFrame()
         {
             _homeScreenFeature.DeactivateReactiveSystems();
             _homeScreenFeature.ClearReactiveSystems();
@@ -42,7 +43,7 @@ namespace Code.Infrastructure.States.GameStates
 
         private void DestructEntities()
         {
-            foreach (GameEntity entity in _gameContext.GetEntities())
+            foreach (MetaEntity entity in _meta.GetEntities())
                 entity.isDestructed = true;
         }
     }

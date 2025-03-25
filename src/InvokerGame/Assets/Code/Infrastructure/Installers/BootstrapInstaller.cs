@@ -20,6 +20,8 @@ using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
+using RSG;
+using UnityEngine;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -64,6 +66,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
         }
 
         private void BindContexts()
@@ -140,10 +143,15 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
         }
 
-
         public void Initialize()
         {
+            Promise.UnhandledException += LogPromiseException;
             Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
+        }
+
+        private void LogPromiseException(object sender, ExceptionEventArgs e)
+        {
+            Debug.LogError(e.Exception);
         }
     }
 }

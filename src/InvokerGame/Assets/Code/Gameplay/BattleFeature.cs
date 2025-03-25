@@ -1,5 +1,6 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.DamageApplication;
+using Code.Gameplay.Features.GameOver;
 using Code.Gameplay.Features.Invoker;
 using Code.Gameplay.Features.LifeTime;
 using Code.Gameplay.Features.Movement;
@@ -28,6 +29,7 @@ namespace Code.Gameplay
             Add(systems.Create<CollectTargetsFeature>());
 
             Add(systems.Create<DamageApplicationFeature>());
+            Add(systems.Create<GameOverOnInvokerDeathSystem>());
 
             Add(systems.Create<ProcessDestructedFeature>());
         }

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95edf4093ac25f545bf93afd60781e48, type: 3}
   m_Name: windowConfig
   m_EditorClassIdentifier: 
-  WindowConfigs: []
+  WindowConfigs:
+  - Id: 0
+    Prefab: {fileID: 6501383718211750800, guid: 80b5a251487dd8c45af27d7a3e21abb3, type: 3}

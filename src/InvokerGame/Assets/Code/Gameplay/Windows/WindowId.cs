@@ -2,6 +2,6 @@
 {
   public enum WindowId
   {
-    LevelUpWindow = 0,
+    GameOverWindow = 0,
   }
 }
