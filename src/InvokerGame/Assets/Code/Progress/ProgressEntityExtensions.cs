@@ -26,6 +26,7 @@ namespace Code.Progress
             return entity switch
             {
                 GameEntity => GameComponentsLookup.componentTypes,
+                MetaEntity => MetaComponentsLookup.componentTypes,
                 _ => throw new ArgumentException($"Requested Lookup for {entity.GetType().Name} witch is not implemented")
             };
         }

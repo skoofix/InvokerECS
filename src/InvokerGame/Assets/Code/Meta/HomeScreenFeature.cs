@@ -1,5 +1,6 @@
 ﻿using Code.Common.Destruct;
 using Code.Infrastructure.Systems;
+using Code.Meta.UI.TotalScoreHolder;
 
 namespace Code.Meta
 {
@@ -7,6 +8,8 @@ namespace Code.Meta
     {
         public HomeScreenFeature(ISystemFactory systems)
         {
+            Add(systems.Create<RefreshTotalScoreSystem>());
+            
             Add(systems.Create<ProcessDestructedFeature>());
         }        
     }

@@ -1,6 +1,7 @@
 ﻿using Code.Gameplay.Windows;
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
+using Code.Progress.SaveLoad;
 using UnityEngine.UI;
 using Zenject;
 
@@ -12,12 +13,14 @@ namespace Code.Gameplay.GameOver.UI
 
         private IGameStateMachine _gameStateMachine;
         private IWindowService _windowService;
+        private ISaveLoadService _saveLoadService;
 
         [Inject]
-        private void Construct(IGameStateMachine stateMachine, IWindowService windowService)
+        private void Construct(IGameStateMachine stateMachine, IWindowService windowService, ISaveLoadService saveLoadService)
         {
             Id = WindowId.GameOverWindow;
 
+            _saveLoadService = saveLoadService;
             _gameStateMachine = stateMachine;
             _windowService = windowService;
         }
@@ -31,6 +34,7 @@ namespace Code.Gameplay.GameOver.UI
         {
             _windowService.Close(Id);
       
+            _saveLoadService.SaveProgress();
             _gameStateMachine.Enter<LoadingHomeScreenState>();
         }
     }

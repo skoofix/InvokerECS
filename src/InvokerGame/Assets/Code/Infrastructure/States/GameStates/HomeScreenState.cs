@@ -1,20 +1,19 @@
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
 using Code.Meta;
-using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
     public class HomeScreenState : EndOfFrameExitState
     {
         private readonly ISystemFactory _systems;
-        private readonly MetaContext _meta;
+        private readonly GameContext _game;
         private HomeScreenFeature _homeScreenFeature;
 
-        public HomeScreenState(ISystemFactory systems, MetaContext meta)
+        public HomeScreenState(ISystemFactory systems, GameContext game)
         {
             _systems = systems;
-            _meta = meta;
+            _game = game;
         }
 
         public override void Enter()
@@ -43,7 +42,7 @@ namespace Code.Infrastructure.States.GameStates
 
         private void DestructEntities()
         {
-            foreach (MetaEntity entity in _meta.GetEntities())
+            foreach (GameEntity entity in _game.GetEntities())
                 entity.isDestructed = true;
         }
     }

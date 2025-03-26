@@ -5,13 +5,13 @@ namespace Code.Gameplay.Features.Score.Systems
 {
     public class AddScoreSystem : ReactiveSystem<GameEntity>
     {
-        private readonly IGroup<GameEntity> _storages;
+        private readonly IGroup<GameEntity> _invokers;
 
         public AddScoreSystem(GameContext game) : base(game)
         {
-            _storages = game.GetGroup(GameMatcher
+            _invokers = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Storage,
+                    GameMatcher.Invoker,
                     GameMatcher.Score));
         }
 
@@ -22,10 +22,10 @@ namespace Code.Gameplay.Features.Score.Systems
 
         protected override void Execute(List<GameEntity> activatedSpells)
         {
-            foreach (GameEntity storage in _storages)
+            foreach (GameEntity invoker in _invokers)
             foreach (GameEntity spell in activatedSpells)
             {
-                storage.ReplaceScore(storage.Score + spell.Score);
+                invoker.ReplaceScore(invoker.Score + spell.Score);
             }
         }
     }

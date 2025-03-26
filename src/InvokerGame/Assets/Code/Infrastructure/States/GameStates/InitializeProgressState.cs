@@ -1,3 +1,6 @@
+using Code.Common.Entity;
+using Code.Common.Extensions;
+using Code.Gameplay.Features.Score;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.SaveLoad;
@@ -40,6 +43,10 @@ namespace Code.Infrastructure.States.GameStates
         private void CreateNewProgress()
         {
             _saveLoadService.CreateProgress();
+
+            CreateMetaEntity.Empty()
+                .With(x => x.isStorage = true)
+                .AddTotalScore(0);
         }
     }
 }

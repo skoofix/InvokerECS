@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
@@ -55,6 +56,7 @@ namespace Code.Gameplay.Features.Invoker.Systems
                 KeyCode.Q => OrbTypeId.Quas,
                 KeyCode.W => OrbTypeId.Wex,
                 KeyCode.E => OrbTypeId.Exort,
+                _ => throw new ArgumentOutOfRangeException(nameof(key), key, null)
             };
         }
     }

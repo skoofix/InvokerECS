@@ -35,6 +35,8 @@ public sealed partial class MetaEntity : INamedEntity
             {
                 switch (component.GetType().Name)
                 {
+                    default:
+                        break;
                 }
             }
         }

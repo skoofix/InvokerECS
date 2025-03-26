@@ -6,15 +6,15 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class MetaMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherStorage;
+    static Entitas.IMatcher<MetaEntity> _matcherStorage;
 
-    public static Entitas.IMatcher<GameEntity> Storage {
+    public static Entitas.IMatcher<MetaEntity> Storage {
         get {
             if (_matcherStorage == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Storage);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<MetaEntity>)Entitas.Matcher<MetaEntity>.AllOf(MetaComponentsLookup.Storage);
+                matcher.componentNames = MetaComponentsLookup.componentNames;
                 _matcherStorage = matcher;
             }
 
@@ -31,15 +31,15 @@ public sealed partial class GameMatcher {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class MetaEntity {
 
     static readonly Code.Gameplay.Features.Score.Storage storageComponent = new Code.Gameplay.Features.Score.Storage();
 
     public bool isStorage {
-        get { return HasComponent(GameComponentsLookup.Storage); }
+        get { return HasComponent(MetaComponentsLookup.Storage); }
         set {
             if (value != isStorage) {
-                var index = GameComponentsLookup.Storage;
+                var index = MetaComponentsLookup.Storage;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0

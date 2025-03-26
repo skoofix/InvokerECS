@@ -9,14 +9,20 @@
 public static class MetaComponentsLookup {
 
     public const int Destructed = 0;
+    public const int Storage = 1;
+    public const int TotalScore = 2;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-        "Destructed"
+        "Destructed",
+        "Storage",
+        "TotalScore"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Common.Destructed)
+        typeof(Code.Common.Destructed),
+        typeof(Code.Gameplay.Features.Score.Storage),
+        typeof(Code.Gameplay.Features.Score.TotalScore)
     };
 }

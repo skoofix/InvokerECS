@@ -11,14 +11,14 @@ namespace Code.Progress.SaveLoad
     {
         private const string PlayerProgressKey = "PlayerProgress";
         
-        private readonly GameContext _gameContext;
+        private readonly MetaContext _metaContext;
         private readonly IProgressProvider _progressProvider;
 
         public bool HasSavedProgress => PlayerPrefs.HasKey(PlayerProgressKey);
 
-        public SaveLoadService(GameContext gameContext, IProgressProvider progressProvider)
+        public SaveLoadService(MetaContext metaContext, IProgressProvider progressProvider)
         {
-            _gameContext = gameContext;
+            _metaContext = metaContext;
             _progressProvider = progressProvider;
         }
 
@@ -42,16 +42,16 @@ namespace Code.Progress.SaveLoad
         private void HydrateProgress(string serializedProgress)
         {
             _progressProvider.SetProgressData(serializedProgress.FromJson<ProgressData>());
-            HydrateGameEntities();
+            HydrateMetaEntities();
         }
 
-        private void HydrateGameEntities()
+        private void HydrateMetaEntities()
         {
             List<EntitySnapshot> snapshots = _progressProvider.EntityData.GameEntitySnapshots;
 
             foreach (EntitySnapshot snapshot in snapshots)
             {
-                _gameContext
+                _metaContext
                     .CreateEntity()
                     .HydrateWith(snapshot);
             }
@@ -59,14 +59,14 @@ namespace Code.Progress.SaveLoad
 
         private void PreserveMetaEntities()
         {
-            _progressProvider.EntityData.GameEntitySnapshots = _gameContext
+            _progressProvider.EntityData.GameEntitySnapshots = _metaContext
                 .GetEntities()
                 .Where(RequiresSave)
                 .Select(e => e.AsSavedEntity())
                 .ToList();
         }
 
-        private static bool RequiresSave(GameEntity e)
+        private static bool RequiresSave(MetaEntity e)
         {
             return e.GetComponents().Any(c => c is ISavedComponent );
         }

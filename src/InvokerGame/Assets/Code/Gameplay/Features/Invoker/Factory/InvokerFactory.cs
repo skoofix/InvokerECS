@@ -29,7 +29,6 @@ namespace Code.Gameplay.Features.Invoker.Factory
                 .AddCurrentHp(3)
                 .AddScore(0)
                 .With(x => x.isInvoker = true)
-                .With(x => x.isStorage = true)
                 .With(x => x.isOrbChanged = true)
                 .With(x => x.isUltimatePressed = false);
         }
