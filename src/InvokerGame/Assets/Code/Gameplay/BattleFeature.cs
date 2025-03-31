@@ -30,6 +30,7 @@ namespace Code.Gameplay
             Add(systems.Create<CollectTargetsFeature>());
 
             Add(systems.Create<DamageApplicationFeature>());
+            Add(systems.Create<UpdateScoreUISystem>());
             Add(systems.Create<UpdateTotalScoreSystem>());
             Add(systems.Create<GameOverOnInvokerDeathSystem>());
 

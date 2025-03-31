@@ -36,29 +36,30 @@ public static class GameComponentsLookup {
     public const int Moving = 25;
     public const int Speed = 26;
     public const int Score = 27;
-    public const int ActivatedSpell = 28;
-    public const int OrbForCast = 29;
-    public const int ReachedEnd = 30;
-    public const int Spawning = 31;
-    public const int SpawnTimer = 32;
-    public const int Spell = 33;
-    public const int SpellAnimator = 34;
-    public const int SpellId = 35;
-    public const int CollectingTargetsContinuously = 36;
-    public const int CollectTargetsInterval = 37;
-    public const int CollectTargetsTimer = 38;
-    public const int LayerMask = 39;
-    public const int ProcessedTargets = 40;
-    public const int Reached = 41;
-    public const int ReadyToCollectTargets = 42;
-    public const int TargetBuffer = 43;
-    public const int Explosion = 44;
-    public const int VFX = 45;
-    public const int AxisInput = 46;
-    public const int Input = 47;
-    public const int SkillKey = 48;
+    public const int ScoreUI = 28;
+    public const int ActivatedSpell = 29;
+    public const int OrbForCast = 30;
+    public const int ReachedEnd = 31;
+    public const int Spawning = 32;
+    public const int SpawnTimer = 33;
+    public const int Spell = 34;
+    public const int SpellAnimator = 35;
+    public const int SpellId = 36;
+    public const int CollectingTargetsContinuously = 37;
+    public const int CollectTargetsInterval = 38;
+    public const int CollectTargetsTimer = 39;
+    public const int LayerMask = 40;
+    public const int ProcessedTargets = 41;
+    public const int Reached = 42;
+    public const int ReadyToCollectTargets = 43;
+    public const int TargetBuffer = 44;
+    public const int Explosion = 45;
+    public const int VFX = 46;
+    public const int AxisInput = 47;
+    public const int Input = 48;
+    public const int SkillKey = 49;
 
-    public const int TotalComponents = 49;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -89,6 +90,7 @@ public static class GameComponentsLookup {
         "Moving",
         "Speed",
         "Score",
+        "ScoreUI",
         "ActivatedSpell",
         "OrbForCast",
         "ReachedEnd",
@@ -141,6 +143,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Score.Score),
+        typeof(Code.Gameplay.Features.Score.ScoreUIComponent),
         typeof(Code.Gameplay.Features.Spells.ActivatedSpell),
         typeof(Code.Gameplay.Features.Spells.OrbForCastComponent),
         typeof(Code.Gameplay.Features.Spells.ReachedEnd),
